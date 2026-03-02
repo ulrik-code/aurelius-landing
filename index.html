@@ -3,8 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aurelius | The practice of emperors</title>
-  <meta name="description" content="Aurelius is more than an AI agent — he's the spearhead of a discipline system. Join the waitlist for early access.">
+  <title>Aurelius | AI Accountability Partner Built on Stoic Philosophy</title>
+  <meta name="description" content="Journal daily. Get scored nightly. Face the truth weekly. Aurelius is your AI accountability partner — Stoic judgment, daily scoring, and weekly narratives that tell you what you won't tell yourself.">
+  <meta property="og:title" content="Aurelius — Your AI Accountability Partner">
+  <meta property="og:description" content="Journal daily. Get scored nightly. Face the truth weekly. A discipline system built on Stoic philosophy.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="aurelius-bust.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Aurelius — Your AI Accountability Partner">
+  <meta name="twitter:description" content="Journal daily. Get scored nightly. Face the truth weekly.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Geist:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
@@ -21,12 +28,17 @@
       --text-muted: #888;
       --accent-teal: #5eb8c7;
       --accent-gold: #d4a500;
+      --accent-gold-hover: #c49800;
       --error: #f59e0b;
+      --card-bg: rgba(255, 255, 255, 0.03);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-border-hover: rgba(94, 184, 199, 0.4);
       --font: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     }
 
     html {
       font-size: 16px;
+      scroll-behavior: smooth;
     }
 
     body {
@@ -50,6 +62,7 @@
       border: 0;
     }
 
+    /* ── Nav ── */
     nav {
       padding: 1.5rem 3rem;
       position: fixed;
@@ -60,6 +73,10 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      background: rgba(14, 16, 22, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: background 0.3s ease;
     }
 
     .logo {
@@ -92,29 +109,55 @@
     }
 
     .nav-btn {
-      color: var(--accent-teal);
       text-decoration: none;
       font-size: 0.95rem;
-      font-weight: 500;
+      font-weight: 600;
       padding: 0.5rem 1.25rem;
-      border: 1px solid var(--accent-teal);
       border-radius: 4px;
       transition: background-color 0.2s ease, color 0.2s ease;
+      background: var(--accent-gold);
+      color: var(--bg);
+      border: none;
     }
 
     .nav-btn:hover {
-      background-color: var(--accent-teal);
-      color: var(--bg);
+      background: var(--accent-gold-hover);
     }
 
-    .page {
+    /* ── Sections ── */
+    .section {
+      padding: 6rem 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-heading {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 2.25rem;
+      font-weight: 400;
+      text-align: center;
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      margin-bottom: 3rem;
+    }
+
+    /* ── Hero ── */
+    .hero {
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 6rem 4rem 2rem;
-      max-width: 1300px;
+      align-items: center;
+      padding: 8rem 2rem 4rem;
+      max-width: 1100px;
       margin: 0 auto;
+      text-align: center;
     }
 
     .wordmark {
@@ -122,71 +165,31 @@
       font-size: 3.5rem;
       font-weight: 300;
       letter-spacing: 0.35em;
-      text-align: center;
       color: var(--accent-teal);
       margin-bottom: 1.5rem;
       text-transform: uppercase;
     }
 
     .hero-headline {
-      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(1.5rem, 3vw, 2.25rem);
       font-weight: 400;
       line-height: 1.4;
-      text-align: center;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.75rem;
       color: rgba(255, 255, 255, 0.9);
     }
 
     .hero-subheadline {
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       font-weight: 400;
       color: rgba(255, 255, 255, 0.6);
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    .hero-image-section {
-      display: flex;
-      justify-content: center;
       margin-bottom: 2.5rem;
-    }
-
-    .two-column {
-      display: flex;
-      align-items: center;
-      gap: 2.5rem;
-      margin-bottom: 2rem;
-    }
-
-    .left-column {
-      flex: 1;
-      max-width: 420px;
-      display: flex;
-      align-items: center;
-      padding-left: 3rem;
-    }
-
-    .problem-text {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.4rem;
-      line-height: 1.65;
-      color: var(--text);
-      font-weight: 450;
-    }
-
-    .problem-text .highlight {
-      color: var(--accent-teal);
-    }
-
-    .right-column {
-      flex: 1.2;
-      display: flex;
-      justify-content: center;
     }
 
     .hero-image-wrapper {
       position: relative;
       display: inline-block;
+      margin-bottom: 2.5rem;
     }
 
     .hero-image-wrapper::after {
@@ -199,38 +202,200 @@
 
     .hero-image {
       width: 100%;
-      max-width: 900px;
+      max-width: 500px;
       height: auto;
       display: block;
       -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 45%, black 45%, transparent 100%);
       mask-image: radial-gradient(ellipse 80% 80% at 50% 45%, black 45%, transparent 100%);
     }
 
-    .solution-section {
-      max-width: 800px;
-      margin: 0 auto 2.5rem;
+    .hero-cta {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    /* ── Buttons ── */
+    .btn-gold {
+      display: inline-block;
+      padding: 0.875rem 2.5rem;
+      font-size: 1.05rem;
+      font-family: var(--font);
+      font-weight: 600;
+      background: var(--accent-gold);
+      color: var(--bg);
+      border: none;
+      border-radius: 4px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn-gold:hover {
+      background: var(--accent-gold-hover);
+    }
+
+    .btn-outline {
+      display: inline-block;
+      padding: 0.875rem 2.5rem;
+      font-size: 1.05rem;
+      font-family: var(--font);
+      font-weight: 500;
+      background: transparent;
+      color: var(--accent-teal);
+      border: 1px solid var(--accent-teal);
+      border-radius: 4px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .btn-outline:hover {
+      background: var(--accent-teal);
+      color: var(--bg);
+    }
+
+    .hero-price-hint {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    /* ── Problem ── */
+    .problem {
       text-align: center;
-    }
-
-    .solution-text {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.85rem;
-      line-height: 1.65;
-      color: var(--text);
-    }
-
-    .features-section {
       padding: 5rem 2rem;
-      max-width: 1200px;
+      max-width: 700px;
       margin: 0 auto;
     }
 
-    .features-title {
+    .problem h2 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
       font-size: 2.25rem;
-      font-weight: 600;
-      text-align: center;
-      margin-bottom: 3.5rem;
+      font-weight: 400;
+      margin-bottom: 2.5rem;
       color: var(--text);
+    }
+
+    .pain-points {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .pain-points li {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .problem-closer {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.75rem;
+      color: var(--accent-teal);
+      font-weight: 400;
+    }
+
+    /* ── Solution ── */
+    .solution {
+      text-align: center;
+      padding: 5rem 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .solution h2 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 2.25rem;
+      font-weight: 400;
+      margin-bottom: 1.5rem;
+    }
+
+    .solution p {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.15rem;
+      line-height: 1.75;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    /* ── Timeline ── */
+    .timeline-section {
+      padding: 6rem 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 3rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--accent-teal);
+      opacity: 0.4;
+    }
+
+    .timeline-step {
+      position: relative;
+      margin-bottom: 2.5rem;
+      padding-left: 1.5rem;
+    }
+
+    .timeline-step:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-step::before {
+      content: '';
+      position: absolute;
+      left: -2.85rem;
+      top: 0.5rem;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--accent-teal);
+      border: 2px solid var(--bg);
+      z-index: 1;
+    }
+
+    .timeline-time {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent-gold);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.25rem;
+    }
+
+    .timeline-label {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 0.35rem;
+    }
+
+    .timeline-desc {
+      font-size: 1rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ── Features ── */
+    .features-section {
+      padding: 6rem 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
     }
 
     .features-grid {
@@ -240,8 +405,8 @@
     }
 
     .feature-card {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
       border-radius: 8px;
       padding: 2.5rem 2rem;
       transition: border-color 0.2s ease, background 0.2s ease;
@@ -254,80 +419,177 @@
     }
 
     .feature-card:hover {
-      border-color: rgba(94, 184, 199, 0.4);
+      border-color: var(--card-border-hover);
       background: rgba(255, 255, 255, 0.05);
     }
 
     .feature-title {
-      font-size: 1.45rem;
+      font-size: 1.35rem;
       font-weight: 600;
-      color: #D4AF37;
+      color: var(--accent-gold);
       margin-bottom: 0.75rem;
     }
 
     .feature-description {
+      font-family: 'Space Grotesk', sans-serif;
       font-size: 1rem;
       line-height: 1.6;
-      color: rgba(255, 255, 255, 0.8);
+      color: rgba(255, 255, 255, 0.75);
     }
 
-    @media (max-width: 900px) {
-      .features-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 600px) {
-      .features-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .feature-card {
-        min-height: auto;
-      }
-
-      .features-title {
-        font-size: 1.75rem;
-      }
-      
-      .wordmark {
-        font-size: 2.5rem;
-        letter-spacing: 0.25em;
-      }
-    }
-
-    .cta-section {
-      max-width: 500px;
+    /* ── Pricing ── */
+    .pricing-section {
+      padding: 6rem 2rem;
+      max-width: 1100px;
       margin: 0 auto;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .pricing-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      position: relative;
+    }
+
+    .pricing-card.recommended {
+      border-color: var(--accent-gold);
+      transform: scale(1.03);
+      box-shadow: 0 0 40px rgba(212, 165, 0, 0.08);
+    }
+
+    .pricing-badge {
+      position: absolute;
+      top: -0.75rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent-gold);
+      color: var(--bg);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      padding: 0.25rem 1rem;
+      border-radius: 100px;
+      text-transform: uppercase;
+    }
+
+    .pricing-tier {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.75rem;
+      font-weight: 400;
+      margin-bottom: 0.25rem;
+    }
+
+    .pricing-price {
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.25rem;
+    }
+
+    .pricing-price span {
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--text-muted);
+    }
+
+    .pricing-tagline {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+
+    .pricing-features {
+      list-style: none;
+      text-align: left;
+      margin-bottom: 2rem;
+      flex-grow: 1;
+    }
+
+    .pricing-features li {
+      padding: 0.4rem 0;
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.75);
+      position: relative;
+      padding-left: 1.25rem;
+    }
+
+    .pricing-features li::before {
+      content: '\2713';
+      position: absolute;
+      left: 0;
+      color: var(--accent-teal);
+      font-weight: 600;
+    }
+
+    .pricing-card .btn-gold,
+    .pricing-card .btn-outline {
+      width: 100%;
       text-align: center;
     }
 
-    .cta-label {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
+    /* ── Final CTA ── */
+    .final-cta {
+      text-align: center;
+      padding: 6rem 2rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .final-cta h2 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 2.25rem;
+      font-weight: 400;
       margin-bottom: 1rem;
     }
 
-    .form-container {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
+    .final-cta .final-subtext {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .final-cta .btn-gold {
+      margin-bottom: 3rem;
+    }
+
+    .waitlist-fallback {
+      border-top: 1px solid var(--card-border);
+      padding-top: 2rem;
+    }
+
+    .waitlist-fallback p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
     }
 
     .form-row {
       display: flex;
       gap: 0.75rem;
+      max-width: 400px;
+      margin: 0 auto;
     }
 
     .email-input {
       flex: 1;
-      padding: 0.875rem 1.25rem;
-      font-size: 1rem;
+      padding: 0.75rem 1rem;
+      font-size: 0.9rem;
       font-family: var(--font);
       background: transparent;
-      border: 1px solid var(--accent-teal);
+      border: 1px solid rgba(255, 255, 255, 0.15);
       border-radius: 4px;
       color: var(--text);
       outline: none;
@@ -339,31 +601,27 @@
     }
 
     .email-input:focus {
-      box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.2);
+      border-color: var(--accent-teal);
+      box-shadow: 0 0 0 3px rgba(94, 184, 199, 0.15);
     }
 
     .submit-btn {
-      padding: 0.875rem 1.5rem;
-      font-size: 1rem;
+      padding: 0.75rem 1.25rem;
+      font-size: 0.9rem;
       font-family: var(--font);
       font-weight: 500;
       background: transparent;
-      border: 1px solid var(--accent-teal);
+      border: 1px solid rgba(255, 255, 255, 0.15);
       border-radius: 4px;
-      color: var(--accent-teal);
+      color: var(--text-muted);
       cursor: pointer;
-      transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+      transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
       white-space: nowrap;
     }
 
     .submit-btn:hover:not(:disabled) {
-      background-color: var(--accent-teal);
-      color: var(--bg);
-    }
-
-    .submit-btn:focus {
-      outline: none;
-      box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.2);
+      border-color: var(--accent-teal);
+      color: var(--accent-teal);
     }
 
     .submit-btn:disabled {
@@ -372,7 +630,8 @@
     }
 
     .form-message {
-      font-size: 0.9375rem;
+      font-size: 0.875rem;
+      margin-top: 0.5rem;
     }
 
     .form-message.error {
@@ -381,7 +640,7 @@
 
     .success-message {
       color: var(--accent-gold);
-      font-size: 1.125rem;
+      font-size: 1rem;
       font-weight: 500;
     }
 
@@ -389,68 +648,170 @@
       display: none;
     }
 
+    /* ── Footer ── */
     footer {
-      padding: 2rem 3rem;
-      text-align: left;
+      padding: 2.5rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       color: var(--text-muted);
       font-size: 0.8rem;
+      border-top: 1px solid var(--card-border);
+      max-width: 1100px;
+      margin: 0 auto;
     }
 
+    .footer-left a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-left a:hover {
+      color: var(--accent-teal);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent-teal);
+    }
+
+    /* ── Responsive ── */
     @media (max-width: 900px) {
-      .page {
-        padding: 6rem 2rem 2rem;
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .pricing-grid {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .pricing-card.recommended {
+        order: -1;
+        transform: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        padding: 1rem 1.5rem;
+      }
+
+      .nav-link {
+        display: none;
+      }
+
+      .logo-img {
+        height: 50px;
+      }
+
+      .hero {
+        padding: 7rem 1.5rem 3rem;
+      }
+
+      .wordmark {
+        font-size: 2.5rem;
+        letter-spacing: 0.25em;
       }
 
       .hero-headline {
-        font-size: 1.25rem;
-        margin-bottom: 0.5rem;
-      }
-
-      .two-column {
-        flex-direction: column-reverse;
-        gap: 2rem;
-      }
-
-      .left-column {
-        max-width: 100%;
-      }
-
-      .right-column {
-        width: 100%;
+        font-size: 1.35rem;
       }
 
       .hero-image {
         max-width: 300px;
       }
 
-      .problem-text,
-      .solution-text {
-        font-size: 1.1rem;
+      .btn-gold, .btn-outline {
+        width: 100%;
+        text-align: center;
+      }
+
+      .section-heading,
+      .problem h2,
+      .solution h2,
+      .final-cta h2 {
+        font-size: 1.75rem;
+      }
+
+      .problem, .solution, .timeline-section, .features-section, .pricing-section, .final-cta {
+        padding: 4rem 1.5rem;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-card {
+        min-height: auto;
+      }
+
+      .timeline::before {
+        display: none;
+      }
+
+      .timeline {
+        padding-left: 0;
+      }
+
+      .timeline-step {
+        padding-left: 0;
+        padding: 1.5rem;
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
+        border-radius: 8px;
+      }
+
+      .timeline-step::before {
+        display: none;
       }
 
       .form-row {
         flex-direction: column;
       }
+
+      footer {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+        padding: 2rem 1.5rem;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- Nav -->
   <nav>
     <a href="https://sparboesystems.com" class="logo" target="_blank">
       <img src="ss-logo.webp?v=2" alt="Sparboe Systems" class="logo-img">
     </a>
     <div class="nav-links">
-      <a href="#about" class="nav-link">About</a>
-      <a href="#waitlist" class="nav-btn">Join Waitlist</a>
+      <a href="#how-it-works" class="nav-link">How It Works</a>
+      <a href="#pricing" class="nav-link">Pricing</a>
+      <a href="#pricing" class="nav-btn">Get Started</a>
     </div>
   </nav>
 
-  <main class="page">
-    <h1 class="wordmark">Aurelius</h1>
-    <p class="hero-headline">The practice of emperors. The edge of modern builders.</p>
-    <p class="hero-subheadline">AI-powered journaling for the disciplined few.</p>
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <h1 class="wordmark">Aurelius</h1>
+      <p class="hero-headline">Your AI accountability partner. Built on Stoic philosophy.</p>
+      <p class="hero-subheadline">Journal daily. Get scored nightly. Face the truth weekly.</p>
 
-    <div class="hero-image-section">
       <div class="hero-image-wrapper">
         <img
           src="aurelius-bust.png?v=2"
@@ -458,72 +819,186 @@
           class="hero-image"
         >
       </div>
-    </div>
 
-    <div class="solution-section" id="about">
-      <p class="solution-text">
-        Aurelius is more than an AI agent — he's the spearhead of a discipline system. He prompts you to reflect. Reminds you of your duties. Holds you accountable. Tells you uncomfortable truths. It all starts with the journal.
-      </p>
-    </div>
+      <div class="hero-cta">
+        <a href="#pricing" class="btn-gold">Start Your Practice</a>
+        <p class="hero-price-hint">From $19/mo &mdash; your journal, your infrastructure, your data.</p>
+      </div>
+    </section>
 
-    <section class="features-section">
-      <h2 class="features-title">Core Features</h2>
-      <div class="features-grid">
-        <div class="feature-card">
-          <h3 class="feature-title">Interface</h3>
-          <p class="feature-description">Talk to him anywhere. Telegram, voice, wherever you are.</p>
+    <!-- Problem -->
+    <section class="problem">
+      <h2>Most people journal into the void</h2>
+      <ul class="pain-points">
+        <li>No one reads it back to you</li>
+        <li>No one tracks whether you followed through</li>
+        <li>No one tells you the pattern you can't see yourself</li>
+      </ul>
+      <p class="problem-closer">Aurelius does.</p>
+    </section>
+
+    <!-- Solution -->
+    <section class="solution">
+      <h2>A discipline system, not a chatbot</h2>
+      <p>Aurelius reads your journal entries, scores your day, compares your intentions against your actions, and delivers Stoic judgment. No sugarcoating. No affirmations. The truth about your week &mdash; told back to you like a mirror.</p>
+    </section>
+
+    <!-- How It Works -->
+    <section class="timeline-section" id="how-it-works">
+      <h2 class="section-heading">The Daily Rhythm</h2>
+      <p class="section-subtitle">A loop designed for discipline, not engagement.</p>
+
+      <div class="timeline">
+        <div class="timeline-step">
+          <p class="timeline-time">Morning</p>
+          <h3 class="timeline-label">Journal</h3>
+          <p class="timeline-desc">Write your raw thoughts in Notion. Plans, reflections, tensions.</p>
         </div>
-        <div class="feature-card">
-          <h3 class="feature-title">Accountability</h3>
-          <p class="feature-description">Morning structure. Evening scores. No days off.</p>
+        <div class="timeline-step">
+          <p class="timeline-time">9 PM</p>
+          <h3 class="timeline-label">Score</h3>
+          <p class="timeline-desc">Rate your day: Energy, Focus, Physical, Satisfaction. 30 seconds.</p>
         </div>
-        <div class="feature-card">
-          <h3 class="feature-title">Judgment</h3>
-          <p class="feature-description">AI that reads your reflections and calls you on your bullshit.</p>
+        <div class="timeline-step">
+          <p class="timeline-time">10 PM</p>
+          <h3 class="timeline-label">Judgment</h3>
+          <p class="timeline-desc">Aurelius reads everything. Names the gap between intention and action. One Stoic lens.</p>
         </div>
-        <div class="feature-card">
-          <h3 class="feature-title">Storytelling</h3>
-          <p class="feature-description">Your week, told back to you as a hero's journey.</p>
+        <div class="timeline-step">
+          <p class="timeline-time">Sunday</p>
+          <h3 class="timeline-label">Weekly Mirror</h3>
+          <p class="timeline-desc">Full week synthesis. Patterns, wins, drift. Not a summary &mdash; a confrontation.</p>
         </div>
-        <div class="feature-card">
-          <h3 class="feature-title">Memory</h3>
-          <p class="feature-description">He remembers everything. Your patterns. Your promises. Your progress.</p>
-        </div>
-        <div class="feature-card">
-          <h3 class="feature-title">Privacy</h3>
-          <p class="feature-description">Your journal stays yours. We see scores, not souls.</p>
+        <div class="timeline-step">
+          <p class="timeline-time">Monday</p>
+          <h3 class="timeline-label">Goal Check</h3>
+          <p class="timeline-desc">Stale goals surfaced. Overdue commitments called out.</p>
         </div>
       </div>
     </section>
 
-    <div class="cta-section" id="waitlist">
-      <p class="cta-label">Now in private testing.</p>
+    <!-- Features -->
+    <section class="features-section">
+      <h2 class="section-heading">Built for Discipline</h2>
+      <p class="section-subtitle">Every feature exists to make you more accountable.</p>
 
-      <div class="form-container" id="formContainer">
-        <form id="waitlistForm" class="form-row">
-          <label for="email" class="sr-only">Email address</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            class="email-input"
-            placeholder="your@email.com"
-            required
-            autocomplete="email"
-          >
-          <button type="submit" class="submit-btn" id="submitBtn">Get early access</button>
-        </form>
-        <div id="formMessage" class="form-message hidden"></div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <h3 class="feature-title">Stoic Judgment</h3>
+          <p class="feature-description">Reads your journal. Compares stated intentions vs actions. Calls the gap.</p>
+        </div>
+        <div class="feature-card">
+          <h3 class="feature-title">Daily Scoring</h3>
+          <p class="feature-description">Energy, Focus, Physical, Satisfaction. Four numbers. Every night. The data of discipline.</p>
+        </div>
+        <div class="feature-card">
+          <h3 class="feature-title">Weekly Narrative</h3>
+          <p class="feature-description">Your week synthesized as a story. Patterns you missed. Promises you broke. Wins you earned.</p>
+        </div>
+        <div class="feature-card">
+          <h3 class="feature-title">Knowledge Graph</h3>
+          <p class="feature-description">Every entry makes every future entry more valuable. Compound interest on your thinking.</p>
+        </div>
+        <div class="feature-card">
+          <h3 class="feature-title">Full Privacy</h3>
+          <p class="feature-description">Your journal lives in YOUR Notion. We see scores, not souls.</p>
+        </div>
+        <div class="feature-card">
+          <h3 class="feature-title">Bring Your Own Keys</h3>
+          <p class="feature-description">Run it on your infrastructure. Your API keys. Your data. Zero lock-in.</p>
+        </div>
       </div>
+    </section>
 
-      <div id="successState" class="hidden">
-        <p class="success-message">You're on the list.</p>
+    <!-- Pricing -->
+    <section class="pricing-section" id="pricing">
+      <h2 class="section-heading">Pricing</h2>
+      <p class="section-subtitle">No free tier. This is a commitment.</p>
+
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <h3 class="pricing-tier">BYOK</h3>
+          <p class="pricing-price">$19<span>/mo</span></p>
+          <p class="pricing-tagline">For builders who want full control</p>
+          <ul class="pricing-features">
+            <li>Your own API keys + VPS</li>
+            <li>Full skill library</li>
+            <li>Notion template</li>
+            <li>Community access</li>
+          </ul>
+          <a href="#stripe-byok" class="btn-outline">Get Started</a>
+        </div>
+
+        <div class="pricing-card recommended">
+          <span class="pricing-badge">Recommended</span>
+          <h3 class="pricing-tier">Core</h3>
+          <p class="pricing-price">$49<span>/mo</span></p>
+          <p class="pricing-tagline">For the committed practitioner</p>
+          <ul class="pricing-features">
+            <li>Everything in BYOK</li>
+            <li>Managed hosting (we run it)</li>
+            <li>Priority support</li>
+            <li>Pre-configured &mdash; journal in 5 minutes</li>
+          </ul>
+          <a href="#stripe-core" class="btn-gold">Start Your Practice</a>
+        </div>
+
+        <div class="pricing-card">
+          <h3 class="pricing-tier">Pro</h3>
+          <p class="pricing-price">$129<span>/mo</span></p>
+          <p class="pricing-tagline">For operators and teams</p>
+          <ul class="pricing-features">
+            <li>Everything in Core</li>
+            <li>Opus-powered weekly narratives</li>
+            <li>Custom skill development</li>
+            <li>1:1 onboarding call</li>
+          </ul>
+          <a href="#stripe-pro" class="btn-outline">Go Pro</a>
+        </div>
       </div>
-    </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+      <h2>The practice starts with one entry.</h2>
+      <p class="final-subtext">Duplicate the Notion template. Write your first journal. Aurelius takes it from there.</p>
+      <a href="#pricing" class="btn-gold">Start Your Practice</a>
+
+      <div class="waitlist-fallback">
+        <p>Not ready to commit? Join the waitlist.</p>
+        <div id="formContainer">
+          <form id="waitlistForm" class="form-row">
+            <label for="email" class="sr-only">Email address</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="email-input"
+              placeholder="your@email.com"
+              required
+              autocomplete="email"
+            >
+            <button type="submit" class="submit-btn" id="submitBtn">Join</button>
+          </form>
+          <div id="formMessage" class="form-message hidden"></div>
+        </div>
+
+        <div id="successState" class="hidden">
+          <p class="success-message">You're on the list.</p>
+        </div>
+      </div>
+    </section>
   </main>
 
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Aurelius</p>
+    <div class="footer-left">
+      &copy; 2026 Aurelius. A <a href="https://sparboesystems.com" target="_blank">Sparboe Systems</a> product.
+    </div>
+    <div class="footer-links">
+      <a href="#privacy">Privacy</a>
+      <a href="#terms">Terms</a>
+    </div>
   </footer>
 
   <script>
@@ -551,7 +1026,7 @@
 
       function setLoading(isLoading) {
         submitBtn.disabled = isLoading;
-        submitBtn.textContent = isLoading ? 'Submitting...' : originalBtnText;
+        submitBtn.textContent = isLoading ? '...' : originalBtnText;
         emailInput.disabled = isLoading;
       }
 
