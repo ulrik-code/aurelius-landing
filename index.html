@@ -151,13 +151,41 @@
     .hero {
       min-height: 100vh;
       display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      padding: 8rem 3rem 4rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .hero-left {
+      flex: 1.15;
+      display: flex;
       flex-direction: column;
       justify-content: center;
+    }
+
+    .hero-identity {
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-action {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    .hero-action .btn-gold {
+      margin-top: 0.75rem;
+    }
+
+    .hero-right {
+      flex: 1;
+      display: flex;
+      justify-content: center;
       align-items: center;
-      padding: 8rem 2rem 4rem;
-      max-width: 1100px;
-      margin: 0 auto;
-      text-align: center;
     }
 
     .wordmark {
@@ -166,7 +194,7 @@
       font-weight: 300;
       letter-spacing: 0.35em;
       color: var(--accent-teal);
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
       text-transform: uppercase;
     }
 
@@ -175,7 +203,7 @@
       font-size: clamp(1.5rem, 3vw, 2.25rem);
       font-weight: 400;
       line-height: 1.4;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.5rem;
       color: rgba(255, 255, 255, 0.9);
     }
 
@@ -183,13 +211,11 @@
       font-size: 1.15rem;
       font-weight: 400;
       color: rgba(255, 255, 255, 0.6);
-      margin-bottom: 2.5rem;
     }
 
     .hero-image-wrapper {
       position: relative;
       display: inline-block;
-      margin-bottom: 2.5rem;
     }
 
     .hero-image-wrapper::after {
@@ -202,27 +228,11 @@
 
     .hero-image {
       width: 100%;
-      max-width: 500px;
+      max-width: 550px;
       height: auto;
       display: block;
       -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 45%, black 45%, transparent 100%);
       mask-image: radial-gradient(ellipse 80% 80% at 50% 45%, black 45%, transparent 100%);
-    }
-
-    .hero-split {
-      display: flex;
-      align-items: center;
-      gap: 0;
-      width: 100%;
-      justify-content: center;
-    }
-
-    .hero-cta {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 1rem;
-      padding-top: 1rem;
     }
 
     .hero-hook-setup {
@@ -230,7 +240,6 @@
       font-weight: 400;
       color: rgba(255, 255, 255, 0.5);
       line-height: 1.4;
-      margin-bottom: -0.25rem;
     }
 
     .hero-hook-punch {
@@ -238,7 +247,6 @@
       font-weight: 600;
       color: var(--accent-teal);
       line-height: 1.4;
-      margin-bottom: 0.5rem;
     }
 
     /* ── Buttons ── */
@@ -744,7 +752,22 @@
       }
 
       .hero {
+        flex-direction: column;
         padding: 7rem 1.5rem 3rem;
+        text-align: center;
+      }
+
+      .hero-left {
+        align-items: center;
+      }
+
+      .hero-identity {
+        text-align: center;
+      }
+
+      .hero-action {
+        align-items: center;
+        text-align: center;
       }
 
       .wordmark {
@@ -754,15 +777,6 @@
 
       .hero-headline {
         font-size: 1.35rem;
-      }
-
-      .hero-split {
-        flex-direction: column-reverse;
-      }
-
-      .hero-cta {
-        align-items: center;
-        text-align: center;
       }
 
       .hero-image {
@@ -842,16 +856,19 @@
   <main>
     <!-- Hero -->
     <section class="hero">
-      <h1 class="wordmark">Aurelius</h1>
-      <p class="hero-headline">Your AI accountability partner. Built on Stoic philosophy.</p>
-      <p class="hero-subheadline">Journal daily. Get scored nightly. Face the truth weekly.</p>
-
-      <div class="hero-split">
-        <div class="hero-cta">
+      <div class="hero-left">
+        <div class="hero-identity">
+          <h1 class="wordmark">Aurelius</h1>
+          <p class="hero-headline">Your AI accountability partner. Built on Stoic philosophy.</p>
+          <p class="hero-subheadline">Journal daily. Get scored nightly. Face the truth weekly.</p>
+        </div>
+        <div class="hero-action">
           <p class="hero-hook-setup">Most people quit journaling in two weeks.</p>
           <p class="hero-hook-punch">Aurelius makes sure you don't.</p>
           <a href="#pricing" class="btn-gold">Take Action</a>
         </div>
+      </div>
+      <div class="hero-right">
         <div class="hero-image-wrapper">
           <img
             src="aurelius-bust.png?v=2"
