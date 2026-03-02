@@ -221,11 +221,7 @@
     .hero-image-wrapper {
       position: relative;
       display: inline-block;
-      background: transparent;
-    }
-
-    .hero-image-wrapper::after {
-      display: none;
+      background: #0e1016;
     }
 
     .hero-image {
@@ -233,8 +229,10 @@
       max-width: none;
       height: auto;
       display: block;
-      -webkit-mask-image: radial-gradient(ellipse at center, black 70%, transparent 95%);
-      mask-image: radial-gradient(ellipse at center, black 70%, transparent 95%);
+      -webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%), linear-gradient(to bottom, black 85%, transparent 100%);
+      -webkit-mask-composite: destination-in;
+      mask-image: linear-gradient(to right, black 85%, transparent 100%), linear-gradient(to bottom, black 85%, transparent 100%);
+      mask-composite: intersect;
     }
 
     .hero-hook-setup {
