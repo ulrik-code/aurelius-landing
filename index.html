@@ -209,10 +209,18 @@
       mask-image: radial-gradient(ellipse 80% 80% at 50% 45%, black 45%, transparent 100%);
     }
 
+    .hero-split {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      width: 100%;
+      justify-content: center;
+    }
+
     .hero-cta {
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: flex-start;
       gap: 1rem;
     }
 
@@ -731,6 +739,15 @@
         font-size: 1.35rem;
       }
 
+      .hero-split {
+        flex-direction: column-reverse;
+      }
+
+      .hero-cta {
+        align-items: center;
+        text-align: center;
+      }
+
       .hero-image {
         max-width: 300px;
       }
@@ -812,17 +829,18 @@
       <p class="hero-headline">Your AI accountability partner. Built on Stoic philosophy.</p>
       <p class="hero-subheadline">Journal daily. Get scored nightly. Face the truth weekly.</p>
 
-      <div class="hero-image-wrapper">
-        <img
-          src="aurelius-bust.png?v=2"
-          alt="Aurelius - A classical bust with digital circuit patterns"
-          class="hero-image"
-        >
-      </div>
-
-      <div class="hero-cta">
-        <a href="#pricing" class="btn-gold">Take Action</a>
-        <p class="hero-price-hint">From $19/mo &mdash; your journal, your infrastructure, your data.</p>
+      <div class="hero-split">
+        <div class="hero-cta">
+          <a href="#pricing" class="btn-gold">Take Action</a>
+          <p class="hero-price-hint">From $19/mo &mdash; your journal, your infrastructure, your data.</p>
+        </div>
+        <div class="hero-image-wrapper">
+          <img
+            src="aurelius-bust.png?v=2"
+            alt="Aurelius - A classical bust with digital circuit patterns"
+            class="hero-image"
+          >
+        </div>
       </div>
     </section>
 
