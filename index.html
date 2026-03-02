@@ -151,19 +151,20 @@
     .hero {
       min-height: 100vh;
       display: flex;
-      align-items: center;
-      justify-content: center;
+      align-items: flex-start;
       gap: 2rem;
-      padding: 8rem 3rem 4rem;
+      padding: 7rem 3rem 0;
       max-width: 1200px;
       margin: 0 auto;
+      overflow: visible;
     }
 
     .hero-left {
       flex: 1.15;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
+      padding-top: 1.5rem;
     }
 
     .hero-identity {
@@ -185,7 +186,7 @@
       flex: 1;
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;
     }
 
     .wordmark {
@@ -231,7 +232,7 @@
 
     .hero-image {
       width: 100%;
-      max-width: 550px;
+      max-width: 750px;
       height: auto;
       display: block;
       -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 45%, black 45%, transparent 100%);
