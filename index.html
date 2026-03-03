@@ -151,21 +151,35 @@
     .hero {
       min-height: 100vh;
       display: flex;
-      align-items: flex-start;
+      align-items: center;
       gap: 2rem;
-      padding: 9rem 3rem 0;
+      padding: 7rem 3rem 3rem;
       max-width: 1200px;
       margin: 0 auto;
-      overflow: visible;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: -5%;
+      transform: translateY(-50%);
+      width: 55%;
+      height: 80%;
+      background: radial-gradient(ellipse at center, rgba(0, 188, 212, 0.08) 0%, rgba(0, 188, 212, 0.03) 40%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
     }
 
     .hero-left {
       flex: 1.15;
       display: flex;
       flex-direction: column;
-      justify-content: flex-start;
-      padding-top: 1.5rem;
+      justify-content: center;
       max-width: 420px;
+      z-index: 1;
     }
 
     .hero-identity {
@@ -187,8 +201,9 @@
       flex: 1;
       display: flex;
       justify-content: center;
-      align-items: flex-start;
+      align-items: center;
       background: transparent;
+      z-index: 1;
     }
 
     .wordmark {
@@ -217,6 +232,7 @@
       font-weight: 400;
       color: rgba(255, 255, 255, 0.6);
       text-align: left;
+      white-space: nowrap;
     }
 
     .hero-image-wrapper {
@@ -239,8 +255,8 @@
     }
 
     .hero-image {
-      width: 140%;
-      max-width: none;
+      width: 100%;
+      max-width: 480px;
       height: auto;
       display: block;
       filter: drop-shadow(0 0 30px rgba(0, 188, 212, 0.15)) drop-shadow(0 0 80px rgba(0, 188, 212, 0.08));
@@ -790,6 +806,10 @@
         font-size: 1.35rem;
       }
 
+      .hero-subheadline {
+        white-space: normal;
+      }
+
       .hero-image {
         max-width: 300px;
       }
@@ -876,7 +896,7 @@
         <div class="hero-action">
           <p class="hero-hook-setup">Most people quit journaling in two weeks.</p>
           <p class="hero-hook-punch">Aurelius makes sure you don't.</p>
-          <a href="#pricing" class="btn-gold">Take Action</a>
+          <a href="#pricing" class="btn-gold">Begin the Practice</a>
         </div>
       </div>
       <div class="hero-right">
@@ -1004,7 +1024,7 @@
             <li>Support channel</li>
             <li>One-click setup</li>
           </ul>
-          <a href="https://buy.stripe.com/test_00weVdcPjfp58MBbl4aVa01" class="btn-gold">Take Action</a>
+          <a href="https://buy.stripe.com/test_00weVdcPjfp58MBbl4aVa01" class="btn-gold">Begin the Practice</a>
         </div>
 
         <div class="pricing-card">
@@ -1026,7 +1046,7 @@
     <section class="final-cta">
       <h2>The practice starts with one entry.</h2>
       <p class="final-subtext">Duplicate the Notion template. Write your first journal. Aurelius takes it from there.</p>
-      <a href="#pricing" class="btn-gold">Take Action</a>
+      <a href="#pricing" class="btn-gold">Begin the Practice</a>
 
       <div class="waitlist-fallback">
         <p>Not ready to commit? Join the waitlist.</p>
